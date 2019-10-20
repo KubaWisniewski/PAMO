@@ -1,12 +1,10 @@
-package com.example.myapp;
+package com.example.bmicalculator;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-
-import java.text.DecimalFormat;
 
 public class MainActivity extends Activity {
 

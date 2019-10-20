@@ -1,4 +1,4 @@
-package com.example.myapp;
+package com.example.bmicalculator;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
