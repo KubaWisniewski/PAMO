@@ -6,4 +6,8 @@
     <string name="height_title">Height</string>
     <string name="height_hint">Enter your height</string>
     <string name="bmi_result">Your Bmi</string>
+    <string name="bmi_underweight">Underweight</string>
+    <string name="bmi_normalweight">Normalweight</string>
+    <string name="bmi_overweight">Overweight</string>
+    <string name="bmi_obese">Obese</string>
 </resources>

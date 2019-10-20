@@ -7,21 +7,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
-
-    private EditText weightEditText;
-    private EditText heightEditText;
-    private TextView resultTextView;
-    private TextView resultDetailsTextView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        heightEditText = (EditText) findViewById(R.id.heightEditText);
-        weightEditText = (EditText) findViewById(R.id.weightEditText);
-        resultTextView = (TextView) findViewById(R.id.resultTextView);
-        resultDetailsTextView = (TextView) findViewById(R.id.resultDetailsTextView);
+        final EditText heightEditText = (EditText) findViewById(R.id.heightEditText);
+        final EditText weightEditText = (EditText) findViewById(R.id.weightEditText);
 
         findViewById(R.id.callculateButton).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -36,22 +28,23 @@ public class MainActivity extends Activity {
                     return;
                 }
                 float result = calculateBMI(Float.parseFloat(weightEditText.getText().toString()), Float.parseFloat(heightEditText.getText().toString()) / 100);
-                resultTextView.setText(String.format("%.2f", result));
-                resultDetailsTextView.setText(resultDetails(result));
+                resultDetails(result);
             }
         });
     }
 
-    private String resultDetails(float result) {
+    private void resultDetails(float result) {
+        final TextView resultTextView = (TextView) findViewById(R.id.resultTextView);
+        resultTextView.setText(String.format("%.2f", result));
+        final TextView resultDetailsTextView = (TextView) findViewById(R.id.resultDetailsTextView);
         if (result < 18.5)
-            return "Underwieght";
+            resultDetailsTextView.setText(R.string.bmi_underweight);
         else if (result >= 18.5 && result <= 25)
-            return "Normalweight";
+            resultDetailsTextView.setText(R.string.bmi_normalweight);
         else if (result > 25 && result <= 30)
-            return "Overweight";
-        else if (result > 30)
-            return "Obese";
-        else return "Error";
+            resultDetailsTextView.setText(R.string.bmi_overweight);
+        else
+            resultDetailsTextView.setText(R.string.bmi_obese);
     }
 
     private float calculateBMI(float weight, float height) {
