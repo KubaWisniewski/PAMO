@@ -1,5 +1,6 @@
 package com.example.bottomactivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.BottomNavigationView;
@@ -13,12 +14,15 @@ import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
     private LinearLayout homeLayout;
     private LinearLayout bmiLayout;
     private LinearLayout dietLayout;
     private ConstraintLayout imageLayout;
     private int gender;
+    private ArrayList<String> statistics = new ArrayList<>();
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -32,6 +36,14 @@ public class MainActivity extends AppCompatActivity {
                     imageLayout.setVisibility(View.INVISIBLE);
                     final TextView welcomeTextView = findViewById(R.id.welcomeTextView);
                     welcomeTextView.setText(R.string.welcome);
+                    if (statistics.size() > 0) {
+                        findViewById(R.id.chartButton).setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                showChart();
+                            }
+                        });
+                    }
                     return true;
                 case R.id.navigation_dashboard:
                     homeLayout.setVisibility(View.INVISIBLE);
@@ -92,6 +104,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        if (statistics.size() > 0) {
+            findViewById(R.id.chartButton).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    showChart();
+                }
+            });
+        }
+        findViewById(R.id.quizButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startQuiz();
+            }
+        });
         homeLayout = findViewById(R.id.homeLayout);
         bmiLayout = findViewById(R.id.bmiLayout);
         dietLayout = findViewById(R.id.dietLayout);
@@ -147,6 +173,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private float calculateBMI(float weight, float height) {
+        statistics.add(String.valueOf(weight));
         return (float) (weight / (Math.pow(height, 2)));
     }
 
@@ -156,5 +183,16 @@ public class MainActivity extends AppCompatActivity {
         } else {
             return (float) ((10 * weight) + (height * 6.25) - (5 * age) + 5);
         }
+    }
+
+    private void startQuiz() {
+        Intent intent = new Intent(this, QuizActivity.class);
+        startActivity(intent);
+    }
+
+    private void showChart() {
+        Intent intent = new Intent(this, ChartActivity.class);
+        intent.putStringArrayListExtra("statistics", statistics);
+        startActivity(intent);
     }
 }

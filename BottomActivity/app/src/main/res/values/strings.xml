@@ -25,4 +25,12 @@
     <string name="low_diet">Low kcal diet</string>
     <string name="normal_diet">Normal kcal diet</string>
     <string name="high_diet">High kcal diet</string>
+    <string name="score">Score:</string>
+    <string name="rerun">Rerun</string>
+    <string name="exit_quiz">Exit</string>
+    <string name="win_quiz">Congratulations! You have completed the course with the maximum number of points.</string>
+    <string name="lose_quiz">Oops, you made a mistake! Your number of points is:</string>
+    <string name="start_quiz">Start quiz</string>
+    <string name="chart">Your weight chart</string>
+    <string name="back">Back</string>
 </resources>
