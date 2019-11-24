@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/bottom_nav_menu" >
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+
+    <LinearLayout
+        android:id="@+id/bmiLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical"
+        android:paddingTop="10dp"
+        android:paddingBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/nav_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/nav_view"
+        tools:visibility="invisible">
+
+        <TextView
+            android:id="@+id/heightTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/height_title"
+            android:textAlignment="center"
+            android:textSize="26sp" />
+
+        <EditText
+            android:id="@+id/heightEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:digits="0123456789"
+            android:ems="10"
+            android:hint="@string/height_hint"
+            android:inputType="numberDecimal"
+            android:maxLength="3" />
+
+        <TextView
+            android:id="@+id/weightTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/weight_title"
+            android:textAlignment="center"
+            android:textSize="26sp" />
+
+        <EditText
+            android:id="@+id/weightEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:digits="0123456789"
+            android:ems="10"
+            android:hint="@string/weight_hint"
+            android:inputType="numberDecimal"
+            android:maxLength="3" />
+
+        <TextView
+            android:id="@+id/ageTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/age_title"
+            android:textAlignment="center"
+            android:textSize="26sp" />
+
+        <EditText
+            android:id="@+id/ageEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:digits="0123456789"
+            android:ems="10"
+            android:hint="@string/age_hint"
+            android:inputType="numberDecimal"
+            android:maxLength="3" />
+
+        <TextView
+            android:id="@+id/genderTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/gender_title"
+            android:textAlignment="center"
+            android:textSize="26sp" />
+
+        <RadioGroup
+            android:id="@+id/genderRadioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:checkedButton="@id/femaleRadioButton"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/femaleRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/gender_female" />
+
+            <RadioButton
+                android:id="@+id/maleRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/gender_male" />
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/callculateButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/callculate_bmi" />
+
+        <TextView
+            android:id="@+id/bmiTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/bmi_title"
+            android:textAlignment="center"
+            android:textSize="26sp" />
+
+        <TextView
+            android:id="@+id/bmiResultTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="26sp" />
+
+        <TextView
+            android:id="@+id/bmiResultDetailsTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="26sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/homeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/nav_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/nav_view"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/welcomeTextView"
+            android:layout_width="match_parent"
+            android:layout_height="251dp"
+            android:gravity="center"
+            android:text="@string/welcome"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            tools:visibility="visible" />
+
+        <Button
+            android:id="@+id/quizButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/start_quiz" />
+
+        <Button
+            android:id="@+id/chartButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/chart" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/dietLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical"
+        android:paddingTop="10dp"
+        android:paddingBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/nav_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/nav_view"
+        tools:visibility="invisible">
+
+        <TextView
+            android:id="@+id/ppmTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/ppm_title"
+            android:textAlignment="center"
+            android:textSize="26sp" />
+
+        <TextView
+            android:id="@+id/ppmResultTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/imageLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/veryLowImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="45dp"
+                android:contentDescription="@string/very_low_diet"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/very_low" />
+
+            <ImageView
+                android:id="@+id/lowImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="45dp"
+                android:contentDescription="@string/low_diet"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/low" />
+
+            <ImageView
+                android:id="@+id/normalImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="45dp"
+                android:contentDescription="@string/normal_diet"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/normal" />
+
+            <ImageView
+                android:id="@+id/highImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="45dp"
+                android:contentDescription="@string/high_diet"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/high" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

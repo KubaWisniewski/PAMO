@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".QuizActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/answer1Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/answer2Button"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:id="@+id/answer2Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/answer3Button"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:id="@+id/answer3Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/answer4Button"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:id="@+id/answer4Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
+
+
+        <TextView
+            android:id="@+id/scoreTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/questionTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/answer1Button"
+            android:layout_below="@+id/scoreTextView"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:textSize="24sp" />
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
